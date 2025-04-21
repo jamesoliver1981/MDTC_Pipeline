@@ -145,3 +145,83 @@ def shot_prep2(d_in):
     out= out.reset_index()
        
     return out
+
+def points_prep(points, shots_wide):
+            # from the points, take new point =1 ie the start points - get the serve yes no information
+
+        points["NewPoint"][0] = 1
+        game_pre = points[points.NewPoint == 1]
+
+        game_pre = pd.merge(game_pre, shots_wide[["Key", "preds", "Serve"]], how="left", left_on="ShotCount",
+                            right_on="Key")
+
+        game_pre["Serve_min1"] = game_pre.Serve.shift(-1)
+        game_pre["Serve_min2"] = game_pre.Serve.shift(-2)
+        game_pre["Serve_min3"] = game_pre.Serve.shift(-3)
+        game_pre["Serve_min4"] = game_pre.Serve.shift(-4)
+        game_pre["Serve_plus1"] = game_pre.Serve.shift(1)
+        game_pre["Serve_plus2"] = game_pre.Serve.shift(2)
+        game_pre["Serve_plus3"] = game_pre.Serve.shift(3)
+        game_pre["Serve_plus4"] = game_pre.Serve.shift(4)
+
+        game_pre["NewGame_Basic"] = np.where(game_pre.Serve != game_pre.Serve_plus1, 1, 0)
+        game_pre["NewGame_Basic_sum"] = game_pre["NewGame_Basic"].cumsum()
+
+        # add in a number of points to a game allowed
+        ptspergame = game_pre.groupby("NewGame_Basic_sum")["Serve"].count().reset_index().rename(
+            columns={"Serve": "PtsPerGame"})
+
+        game_pre = pd.merge(game_pre, ptspergame, how="left", on="NewGame_Basic_sum")
+        game_pre["Drop"] = np.where(game_pre.PtsPerGame < 4, 1, 0)
+        game_pre["Drop_refine"] = np.where(
+            (game_pre.Serve == game_pre.Serve_min4) | (game_pre.Serve == game_pre.Serve_min3) | (
+                        game_pre.Serve == game_pre.Serve_min2), 0, game_pre.Drop)
+        game_pre["NewGame_Post"] = np.where(game_pre.Drop_refine == 1, 0, game_pre.NewGame_Basic)
+        game_pre["NewGame_Post_sum"] = game_pre["NewGame_Post"].cumsum()
+
+        game_pre["NewGame_simple"] = np.where(game_pre.Drop == 1, 0, game_pre.NewGame_Basic)
+        game_pre["NewGame_simple_sum"] = game_pre["NewGame_simple"].cumsum()
+
+        ngs = game_pre.groupby("NewGame_Post_sum")["Seconds"].min().reset_index()
+
+        # create the same RE data using the original method.  Save it and test it in jupyter see where my data gets me
+
+        # add Seconds back to this data - would need the truestrike time... will be around somewhere
+
+        # generate a list of game starts - compare this to the truth
+        ng = ngs["Seconds"].to_list()
+        return ng, points
+
+def create_match (points, df_all, ng):
+    match = pd.merge(df_all, points[["Seconds", 
+                                       #"Shots", 
+                                       "NewPoint", "ShotCount","PointCount"]],on ="Seconds",  how="left")
+
+    
+    match["Shot3"]= np.where(match.NewPoint.notnull(),1,0)
+    match["NewPoint"].fillna(0,inplace=True)
+    match["PointCount"].fillna(method="ffill",inplace=True)
+
+    #redefining Shot or not based on if I include the shot
+    match["NewGame"] = 0
+
+    for n in ng:
+        mid = match[match.Seconds == n]
+
+        match.NewGame[match.PacketCounter == mid.PacketCounter.min()] = 1
+
+    match["GameCount"] = match.NewGame.cumsum()
+
+    return match
+
+def create_points_part2(points, match):
+    points = pd.merge(points, match[["Seconds", "GameCount","NewGame"]], how = "left" , on ="Seconds")
+    startpoints = points.groupby("GameCount")["PointCount"].min().reset_index().rename(columns={"PointCount":"StartPoint"})
+    points = pd.merge(points, startpoints, on = "GameCount", how = "left")
+    points["PointInGame"] = points.PointCount - points.StartPoint + 1
+
+    startshot = points.groupby("PointCount")["ShotCount"].min().reset_index().rename(columns={"ShotCount":"StartShot"})
+    points = pd.merge(points, startshot, on = "PointCount", how ="left")
+    points["ShotInGame"] = points.ShotCount - points.StartShot + 1
+    
+    return points

@@ -1,5 +1,14 @@
 from .Extract import dezip, create_out, convert_data, create_smooth
-from .Feature_Gen import feat_gen, create_points_part1, add_key, shot_prep, shot_prep2
+from .Feature_Gen import (
+    feat_gen,
+    create_points_part1,
+    add_key,
+    shot_prep,
+    shot_prep2,
+    points_prep,
+    create_match,
+    create_points_part2
+)
 from .Apply_Models import apply_serve_model_1, apply_serve_model_2
 
 def run_transform_pipeline(zip_path):
@@ -42,8 +51,14 @@ def run_transform_pipeline(zip_path):
     shots_wide2 = shot_prep2(shots2)
 
     shots_wide, shots_wide2 = apply_serve_model_2(shots_wide, shots_wide2)    
+
+    ng, points = points_prep(points, shots_wide)
+
+    match = create_match(points, df_all, ng)
+
+    points_2 = create_points_part2(points, match)
     
-    print(shots_wide.head())
+    print(points_2.head())
     
     print("[4/4] Pipeline run complete.")
 
