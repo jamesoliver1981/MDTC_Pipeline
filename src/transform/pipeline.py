@@ -8,7 +8,9 @@ from .Feature_Gen import (
     points_prep,
     create_match,
     create_points_part2,
-    mk_pts_start_end
+    mk_pts_start_end,
+    fake_gen, 
+    clean_up_fakes
 )
 from .Apply_Models import (
     apply_serve_model_1,
@@ -80,8 +82,13 @@ def run_transform_pipeline(zip_path):
     eval_fin_extra = apply_generic_mod(shots_wide2, dic2, eval_fin)
 
     eval_fin3 = combine_preds(shots_wide, eval_fin_extra, points_start_end2, points_2)
+
+    # identify the fakes
+    movemnts = fake_gen(df)
+
+    eval_fin8 = clean_up_fakes(movemnts, eval_fin3, points, df_all, shots_wide)
     
-    print(eval_fin3.head())
+    print(eval_fin8.head())
     
     print("[4/4] Pipeline run complete.")
 
