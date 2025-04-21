@@ -23,11 +23,12 @@ from .Apply_Models import (
 )
 from .Blend_Touch_wFeatures import create_touch_data, correct_OnServe
 from .Create_Player_SummaryStats import create_stats_basis, create_stats
+from utils.io_helpers import save_dataframe
 
 def run_transform_pipeline(zip_path):
     print("[1/4] Extracting zip contents...")
 
-    extract_path = dezip(zip_path)
+    extract_path, zip_name = dezip(zip_path)
 
     print(f"[2/4] Files extracted to: {extract_path}")
 
@@ -111,6 +112,9 @@ def run_transform_pipeline(zip_path):
         matchType,
         missing_sensor,
         )
+    
+    save_dataframe(meta_out, f"{zip_name}_meta_summary")
+    save_dataframe(eval_table, f"{zip_name}_match_stats")
     
     print("[4/4] Pipeline run complete.")
 

@@ -27,7 +27,7 @@ def dezip(zip_path, base_dir="data/tmp"):
     with zipfile.ZipFile(zip_path, 'r') as zip_ref:
         zip_ref.extractall(extract_path)
 
-    return extract_path
+    return extract_path, zip_name
 
 def create_out(pfad):
     
