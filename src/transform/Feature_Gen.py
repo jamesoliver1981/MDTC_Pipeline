@@ -190,7 +190,7 @@ def points_prep(points, shots_wide):
 
         # generate a list of game starts - compare this to the truth
         ng = ngs["Seconds"].to_list()
-        return ng, points
+        return ng, points, game_pre
 
 def create_match (points, df_all, ng):
     match = pd.merge(df_all, points[["Seconds", 
@@ -225,3 +225,35 @@ def create_points_part2(points, match):
     points["ShotInGame"] = points.ShotCount - points.StartShot + 1
     
     return points
+
+def mk_pts_start_end(points_2, game_pre, df_all):
+    # new variant of point start end based on first shot
+
+    points_start_end = points_2.groupby(["GameCount", "PointInGame"])["Seconds"].agg(
+        {"min", "max", "count"}).reset_index().rename(
+        columns={"min": "minimum", "max": "maximum", "count": "NumShotsinPt"})
+    # adjustmentperiod is for the play in the game vs audio file, but won't be there later
+    adjustmentperiod = 0  # audio is actually ahead this time
+    # adding in 1.5 pre first shot, highly unlikey to say something here
+    points_start_end["min_adj"] = points_start_end.minimum - adjustmentperiod - 1.5
+
+    points_start_end["max_adj"] = points_start_end["min_adj"]
+    points_start_end["keep_end"] = points_start_end.min_adj.shift(-1)
+    points_start_end["keep_end2"] = np.where(points_start_end.keep_end.isnull(),
+                                            df_all.Seconds.max() - adjustmentperiod,
+                                            points_start_end.keep_end)
+
+    # adding if point starts with Serve or Not from Gamepre
+    # merge Serve & to points_2 on shotcount
+    points_3 = pd.merge(points_2, game_pre[["ShotCount", "preds", "Serve", "NewGame_simple"]], how="left",
+                        on="ShotCount")
+    # restrict to first point in game so can merge
+    points_3 = points_3.drop_duplicates(["GameCount", "PointInGame"], keep="first")
+
+    # merge that information to points_start_end based on gameCount and POintInGame
+    points_start_end2 = pd.merge(points_start_end,
+                                points_3[["GameCount", "PointInGame", "preds", "Serve", "NewGame_simple"]],
+                                how="left", on=["GameCount", "PointInGame"]).rename(
+        columns={"Serve": "FirstIsServe", "preds": "PredIsServe"})
+    
+    return points_start_end2

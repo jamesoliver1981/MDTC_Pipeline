@@ -7,9 +7,18 @@ from .Feature_Gen import (
     shot_prep2,
     points_prep,
     create_match,
-    create_points_part2
+    create_points_part2,
+    mk_pts_start_end
 )
-from .Apply_Models import apply_serve_model_1, apply_serve_model_2
+from .Apply_Models import (
+    apply_serve_model_1,
+    apply_serve_model_2,
+    apply_slice_mod,
+    gen_results,
+    apply_BHFocus_mod,
+    apply_generic_mod,
+    combine_preds
+)
 
 def run_transform_pipeline(zip_path):
     print("[1/4] Extracting zip contents...")
@@ -52,13 +61,27 @@ def run_transform_pipeline(zip_path):
 
     shots_wide, shots_wide2 = apply_serve_model_2(shots_wide, shots_wide2)    
 
-    ng, points = points_prep(points, shots_wide)
+    ng, points, game_pre = points_prep(points, shots_wide)
 
     match = create_match(points, df_all, ng)
 
     points_2 = create_points_part2(points, match)
+
+    points_start_end2 = mk_pts_start_end(points_2, game_pre, df_all)
+
+    eval_fin = shots_wide2[["Key", "TimeTrueStrike"]]
+
+    results, dic2, slice_res = apply_slice_mod(shots_wide2)
+
+    eval_fin = gen_results(eval_fin, results, "Slice_Res", dic2)
+
+    eval_fin = apply_BHFocus_mod(slice_res, eval_fin)
+
+    eval_fin_extra = apply_generic_mod(shots_wide2, dic2, eval_fin)
+
+    eval_fin3 = combine_preds(shots_wide, eval_fin_extra, points_start_end2, points_2)
     
-    print(points_2.head())
+    print(eval_fin3.head())
     
     print("[4/4] Pipeline run complete.")
 
