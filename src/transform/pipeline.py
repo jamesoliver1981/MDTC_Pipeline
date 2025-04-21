@@ -21,6 +21,7 @@ from .Apply_Models import (
     apply_generic_mod,
     combine_preds
 )
+from .Blend_Touch_wFeatures import create_touch_data, correct_OnServe
 
 def run_transform_pipeline(zip_path):
     print("[1/4] Extracting zip contents...")
@@ -86,9 +87,13 @@ def run_transform_pipeline(zip_path):
     # identify the fakes
     movemnts = fake_gen(df)
 
-    eval_fin8 = clean_up_fakes(movemnts, eval_fin3, points, df_all, shots_wide)
+    eval_fin8, points_start_end_4 = clean_up_fakes(movemnts, eval_fin3, points, df_all, shots_wide)
+
+    touch3 = create_touch_data(motion, points_start_end_4)
+
+    touch3 = correct_OnServe(touch3, eval_fin8)
     
-    print(eval_fin8.head())
+    print(touch3.head())
     
     print("[4/4] Pipeline run complete.")
 

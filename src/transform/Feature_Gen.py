@@ -471,4 +471,4 @@ def clean_up_fakes(movemnts, eval_fin3, points, df_all, shots_wide):
                         on="Seconds")
     eval_fin8["GamePoint"] = eval_fin8.GameCount.astype("str") + "_" + eval_fin8.PointInGame.astype("str")
 
-    return eval_fin8
+    return eval_fin8, points_start_end_4
