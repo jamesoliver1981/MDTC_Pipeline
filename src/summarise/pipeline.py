@@ -131,7 +131,7 @@ def run_summarise_pipeline(eval_table, zip_name):
                 FirstReturn_Slice_Freq_single, SecondReturn_FH_Freq_single, SecondReturn_BH_Freq_single, SecondReturn_Slice_Freq_single, d1_2)
 
     # Save summary
-    with open(f'{zip_name}_MatchAnalysis.json', 'w') as outfile:
+    with open(f'data/outputs/{zip_name}_MatchAnalysis.json', 'w') as outfile:
         json.dump(single_result, outfile, indent=4)
 
     print("Summarisation complete.")

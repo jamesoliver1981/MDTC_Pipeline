@@ -583,8 +583,8 @@ AverageRally_Length,CountandSum_Return,35,77.0
 AverageRally_Length,CountandSum_Serve,19,34.0
 ShotBreakdown_Frequency,Return_Freq,35,
 ShotBreakdown_Frequency,FH_Freq,30,
-ShotBreakdown_Frequency,Serve_Freq,19,
 ShotBreakdown_Frequency,BH_Freq,19,
+ShotBreakdown_Frequency,Serve_Freq,19,
 ShotBreakdown_Frequency,Slice_Freq,7,
 ShotBreakdown_Frequency,Volley_Freq,1,
 ServeReturn_ShotEff,TotalReturn_BH,13,50.0
