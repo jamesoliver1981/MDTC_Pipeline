@@ -8,7 +8,8 @@ def main():
 
     zip_path = sys.argv[1]
     print(f"Starting pipeline for: {zip_path}")
-    run_transform_pipeline(zip_path)
+    eval_table, zip_name = run_transform_pipeline(zip_path)
+
     print("Pipeline completed successfully.")
 
 if __name__ == "__main__":

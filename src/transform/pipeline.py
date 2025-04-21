@@ -117,4 +117,5 @@ def run_transform_pipeline(zip_path):
     save_dataframe(eval_table, f"{zip_name}_match_stats")
     
     print("[4/4] Pipeline run complete.")
+    return eval_table, zip_name
 
