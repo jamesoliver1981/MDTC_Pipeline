@@ -1,0 +1,352 @@
+{
+    "totalPointsWonOrLost": {
+        "pointWonWithPointsLostPercentage": 61.111111111111114,
+        "winnersOfPointsWonPercentage": {
+            "value": 0,
+            "winners": 61.111111111111114,
+            "forcedError": 0,
+            "mistake": 0
+        },
+        "unforcedErrorsOfPointsLostPercentage": {
+            "value": 100.0,
+            "winners": 0,
+            "forcedError": 0,
+            "mistake": 38.88888888888889
+        }
+    },
+    "recommendations": [
+        "This analysis is based on 54 points, and is personalised based on your Effectiveness Scores (defined below).\n\nProportion of points 4 shots or less: 67% of which won 64%\n4 shots compromising the Serve & Return are most critical area of game as represent largest section of game\n\nServe Effectiveness is High\nYou are winning a good majority of the points on your serve - its hurting your opponent - see the Serve Section for more\n\nReturn Effectiveness is High\nOn average, getting point to rally and able to get a winning percentage in the return game - see the Return Section for more\n\nRally Effectiveness is Medium - but on the higher end\nAble to build the point to a rally and have a positive outcome of rallies - see the Rally Section for more\n\nAverage Rally length is 4.1 shots long.\n\n",
+        "67% of points were finished within 4 shots.  Focus primarily on improving Serve & Return.\n\nThere aren't enough points to assess 2nd Serve points for this match.  Check out the insights in your Personal Summary.\n\nYour shot selection & the effectiveness of those shots needs improvement.  Details and specific recommendations can be found in the Rally section.\n\nThe following are areas of strength.  Check out the details in the relevant areas to see why and how to maintain these.\nFirst Serve Effectivness\n1st Serve Rate\nFirst Return Effectivness"
+    ],
+    "scores": {
+        "serveScore": {
+            "points": 66.56346749226006,
+            "firstServePoints": 99.24812030075188,
+            "secondServePoints": 7.692307692307692,
+            "recommendations": [
+                "First Serve\n1st Serve Effectiveness is 40.8pts better than average\nAt 73.7%, 1st Serve Rate is 7.7pts better than average\nNote: only 14 First Serve points played.  Insights could be volatile where proportions are low.\nNo shot distributions are shown to avoid overinterpretation.\nDetails over multiple matches are available in the Personal Summary.\n\nSecond Serve\n2nd Serve Effectiveness is 15.6pts worse than average\n2nd Serve Effectiveness suffers because you lose more points than you win behind your second serve.\n\n\nCritical Points\nNot enough data for insights on critical points.",
+                "First serve effectiveness is High.\nKeep it up. You win over 40% of points on First Serve which is highly correlated to winning.\nYou get 57% points directly from 1st Serve.  50% of the points where a Serve + 1 is needed employs a Forehand, and its effectiveness score is 11.\nThis is an excellent result and should be maintained, whilst working on other areas of your game.\n\n1st Serve Rate is above average and is effective.\nKeep it up.\n\nNote: There are only 5 2nd Serve points.  Recommendations could be volatile on such little data.\nTherefore no deepdive analysis is performed here.\nHowever aggregated insights on 2nd Serve Performance are generated in your Personal Summary.\n"
+            ],
+            "breakdown": {
+                "detailedPoints": {
+                    "lost": {
+                        "lostToWinnerFromOpponent": 5,
+                        "lostToForcedWinner": 7,
+                        "lostToMistakeByYou": 10
+                    },
+                    "rallyContinued": 1,
+                    "won": {
+                        "wonWithWiner": 10,
+                        "wonWithForced": 5,
+                        "wonWithMistakeOpponent": 5
+                    }
+                },
+                "first": {
+                    "totalPercentage": {
+                        "lost": {
+                            "lostToWinnerFromOpponent": 0,
+                            "lostToForcedWinner": 0,
+                            "lostToMistakeByYou": 21.428571428571427
+                        },
+                        "rallyContinued": 21.428571428571427,
+                        "won": {
+                            "wonWithWiner": 57.14285714285714,
+                            "wonWithForced": 0,
+                            "wonWithMistakeOpponent": 0
+                        }
+                    },
+                    "deucePercentage": {
+                        "lost": {
+                            "lostToWinnerFromOpponent": 0,
+                            "lostToForcedWinner": 0,
+                            "lostToMistakeByYou": 25.0
+                        },
+                        "rallyContinued": 37.5,
+                        "won": {
+                            "wonWithWiner": 37.5,
+                            "wonWithForced": 0,
+                            "wonWithMistakeOpponent": 0
+                        }
+                    },
+                    "advantagePercentage": {
+                        "lost": {
+                            "lostToWinnerFromOpponent": 0,
+                            "lostToForcedWinner": 0,
+                            "lostToMistakeByYou": 16.666666666666664
+                        },
+                        "rallyContinued": 0.0,
+                        "won": {
+                            "wonWithWiner": 83.33333333333334,
+                            "wonWithForced": 0,
+                            "wonWithMistakeOpponent": 0
+                        }
+                    }
+                },
+                "second": {
+                    "totalPercentage": {
+                        "lost": {
+                            "lostToWinnerFromOpponent": 0,
+                            "lostToForcedWinner": 0,
+                            "lostToMistakeByYou": 60.0
+                        },
+                        "rallyContinued": 40.0,
+                        "won": {
+                            "wonWithWiner": 0.0,
+                            "wonWithForced": 0,
+                            "wonWithMistakeOpponent": 0
+                        }
+                    },
+                    "deucePercentage": {
+                        "lost": {
+                            "lostToWinnerFromOpponent": 0,
+                            "lostToForcedWinner": 0,
+                            "lostToMistakeByYou": 0.0
+                        },
+                        "rallyContinued": 100.0,
+                        "won": {
+                            "wonWithWiner": 0.0,
+                            "wonWithForced": 0,
+                            "wonWithMistakeOpponent": 0
+                        }
+                    },
+                    "advantagePercentage": {
+                        "lost": {
+                            "lostToWinnerFromOpponent": 0,
+                            "lostToForcedWinner": 0,
+                            "lostToMistakeByYou": 100.0
+                        },
+                        "rallyContinued": 0.0,
+                        "won": {
+                            "wonWithWiner": 0.0,
+                            "wonWithForced": 0,
+                            "wonWithMistakeOpponent": 0
+                        }
+                    }
+                }
+            },
+            "rateAndEffectiveness": {
+                "ratePercentage": 73.68421052631578,
+                "lostPercentage": {
+                    "firstServe": 21.428571428571427,
+                    "secondServe": 60.0
+                },
+                "rallyPercentage": {
+                    "firstServe": 21.428571428571427,
+                    "secondServe": 40.0
+                },
+                "wonPercentage": {
+                    "firstServe": 57.14285714285714,
+                    "secondServe": 0.0
+                }
+            }
+        },
+        "returnScore": {
+            "points": 81.9047619047619,
+            "firstServePoints": 86.59003831417625,
+            "secondServePoints": 99,
+            "recommendations": [
+                "First Return\nAt 87, 1st Return Effectiveness is 32pts better than average.\n1st Return Completion Rate of  86% is 11pts better than average.\nYou faced a 1st Serve Rate of 83%, which is 17pts higher than average.\nThere are low number of 1st return points. Consider the below, but for adjustments, look to the information provided in your Personal Summary which looks at performance over multiple games.\nOf the 29 First Return points played, 59% were Forehands, 41% were Backhands, & 0% were Slice.\n\nSecond Return\nAt 99, 2nd Return Effectiveness is 50pts better than average.\nThere are only 6 2nd Serve Return points in total.  Insights are limited as the data is volatile.\n\nGeneric Return Insights\nInsufficient data to provide generic insights.\n\nPlay more to get insights on these areas: \nSecond Return Rate\n",
+                "These 1st Return insights are based 29 points. The data is volatile at this level.  Consider it but note it can change easily with more data. A more robust overview is available in your Personal Summary as it considers performance over multiple matches.\nFirst Return Score is High. You are balancing out won & lost points, and how the points end are in your favour.\nThis is beyond expectation. You have a 75% chance of winning with this strong a return game.\nYou are winning more than losing within 'Return + 1'. Great job!\nIf you recorded this game, review the First Return points to see how you play and replicate this behaviour.\n\nNote: this comparison of critical to non-critical performance is only based on 16 critical 1st return points.  This data could be volatile, but the tactics are still worth considering.\nCritical points are points which could result in a break in serve (30-40), or are points that could lead to a breakpoint if won (30-30).\nThere are 3 outcomes from a Return.  Win, Loss, or progress to Rally. On return, we want to prevent the Server from winning quickly.  Our goal is therefore 'Non-Loss' - either we win or progress to rally.\nNon Loss rate on Critical 1st Serves is 38% vs 0% on Non-critical points.\nGood job. Review how you neutralised the serve and keep applying this, especially during these key points.\n\nThere are only  6 2nd Return points. The data is volatile at this level.  Therefore no recommendations are shown.\nHowever aggregated insights on 2nd Return Performance are generated in your Personal Summary once there are at least 30 points to assess.\n"
+            ],
+            "breakdown": {
+                "detailedPoints": {
+                    "lost": {
+                        "lostToWinnerFromOpponent": 5,
+                        "lostToForcedWinner": 7,
+                        "lostToMistakeByYou": 10
+                    },
+                    "rallyContinued": 1,
+                    "won": {
+                        "wonWithWiner": 10,
+                        "wonWithForced": 5,
+                        "wonWithMistakeOpponent": 5
+                    }
+                },
+                "first": {
+                    "totalPercentage": {
+                        "lost": {
+                            "lostToWinnerFromOpponent": 0,
+                            "lostToForcedWinner": 0,
+                            "lostToMistakeByYou": 20.689655172413794
+                        },
+                        "rallyContinued": 41.37931034482759,
+                        "won": {
+                            "wonWithWiner": 37.93103448275862,
+                            "wonWithForced": 0,
+                            "wonWithMistakeOpponent": 0
+                        }
+                    },
+                    "deucePercentage": {
+                        "lost": {
+                            "lostToWinnerFromOpponent": 0,
+                            "lostToForcedWinner": 0,
+                            "lostToMistakeByYou": 28.57142857142857
+                        },
+                        "rallyContinued": 42.857142857142854,
+                        "won": {
+                            "wonWithWiner": 28.57142857142857,
+                            "wonWithForced": 0,
+                            "wonWithMistakeOpponent": 0
+                        }
+                    },
+                    "advantagePercentage": {
+                        "lost": {
+                            "lostToWinnerFromOpponent": 0,
+                            "lostToForcedWinner": 0,
+                            "lostToMistakeByYou": 13.333333333333334
+                        },
+                        "rallyContinued": 40.0,
+                        "won": {
+                            "wonWithWiner": 46.666666666666664,
+                            "wonWithForced": 0,
+                            "wonWithMistakeOpponent": 0
+                        }
+                    }
+                },
+                "second": {
+                    "totalPercentage": {
+                        "lost": {
+                            "lostToWinnerFromOpponent": 0,
+                            "lostToForcedWinner": 0,
+                            "lostToMistakeByYou": 16.666666666666664
+                        },
+                        "rallyContinued": 16.666666666666664,
+                        "won": {
+                            "wonWithWiner": 66.66666666666666,
+                            "wonWithForced": 0,
+                            "wonWithMistakeOpponent": 0
+                        }
+                    },
+                    "deucePercentage": {
+                        "lost": {
+                            "lostToWinnerFromOpponent": 0,
+                            "lostToForcedWinner": 0,
+                            "lostToMistakeByYou": 25.0
+                        },
+                        "rallyContinued": 25.0,
+                        "won": {
+                            "wonWithWiner": 50.0,
+                            "wonWithForced": 0,
+                            "wonWithMistakeOpponent": 0
+                        }
+                    },
+                    "advantagePercentage": {
+                        "lost": {
+                            "lostToWinnerFromOpponent": 0,
+                            "lostToForcedWinner": 0,
+                            "lostToMistakeByYou": 0.0
+                        },
+                        "rallyContinued": 0.0,
+                        "won": {
+                            "wonWithWiner": 100.0,
+                            "wonWithForced": 0,
+                            "wonWithMistakeOpponent": 0
+                        }
+                    }
+                }
+            },
+            "rateAndEffectiveness": {
+                "ratePercentage": {
+                    "firstReturnrate": 86.20689655172413,
+                    "secondReturnrate": 83.33333333333334,
+                    "returnRateChange": -2.8735632183907853
+                },
+                "lostPercentage": {
+                    "firstServe": 20.689655172413794,
+                    "secondServe": 16.666666666666664
+                },
+                "rallyPercentage": {
+                    "firstServe": 41.37931034482759,
+                    "secondServe": 16.666666666666664
+                },
+                "wonPercentage": {
+                    "firstServe": 37.93103448275862,
+                    "secondServe": 66.66666666666666
+                }
+            }
+        },
+        "rallyScore": {
+            "points": 46.666666666666664,
+            "recommendations": [
+                "There are only 18 rally points.  Rally insights could be volatile.\n\nYour Rally Effectiveness Score is 47.  This is 1pts better than average.\nEffectiveness is calculated on outcomes per shot. If the shot continues to rally, the score is given an extra +1.\n\nYour Win Balance is +11%.  This is 9pts better than average.\nWin Balance compares the points played in rally and subtracts the lost points from the won points and divides by Rally points played.\n\nOf the 57 shots played, 53% were Forehands, 33% were Backhands, 12% were Slice, 2% were Volleys, and 0% were Overheads.\nNote shot distributions and shot effectiveness are for ALL shots, NOT just the rallies.  The only shots excluded are the Serve & Return.  The +1 shots are included in the below.\n\nEffectiveness for each shot is defined differently as each shot typically has different aims.  Also be careful about over-interpretating the data if the number of shots is small.\n\nBased on 30 shots, the Forehand Effectiveness Score is 43, which is Medium but on the Low end.  This is because you are only winning marginally more points than you lose on your Forehand.\n\nBased on 19 shots, the Backhand Effectiveness Score is 61, which is Medium and on the High end.  You have a positive Win Balance of + 5pts.\n\nBased on 7 shots, the Slice Effectiveness Score is 67, which is High.  Your Slice is a wepoan and have a clear Win Balance of + 14pts.\n\n",
+                "Rally Score is Medium but on the High End, Rally Win Balance is +11%.\nThere are only 18 rally points to analyse - the recommendations can therefore be volatile.  Note this highlights that serve and return points are the key focus areas. Review this section in your Personal Summary to understand the general trends in your rally game.\n\nShot Mix & Effectiveness is based on 57 shots.  Note where frequencies are low, data can be volatile.\n\nYou play slightly more Forehands than Backhand & Slice combined, however the effectiveness of your Forehand is NOT good. Forehand should be the sword with which you win points. Look to see how you can create more pressure with this.\n"
+            ],
+            "breakdown": {
+                "detailedPoints": {
+                    "lost": {
+                        "lostToWinnerFromOpponent": 5,
+                        "lostToForcedWinner": 7,
+                        "lostToMistakeByYou": 10
+                    },
+                    "rallyContinued": 1,
+                    "won": {
+                        "wonWithWiner": 10,
+                        "wonWithForced": 5,
+                        "wonWithMistakeOpponent": 5
+                    }
+                },
+                "totalPercentage": {
+                    "lost": {
+                        "lostToWinnerFromOpponent": 0,
+                        "lostToForcedWinner": 0,
+                        "lostToMistakeByYou": 26.666666666666668
+                    },
+                    "rallyContinued": 40.0,
+                    "won": {
+                        "wonWithWiner": 33.33333333333333,
+                        "wonWithForced": 0,
+                        "wonWithMistakeOpponent": 0
+                    }
+                }
+            },
+            "rallyLengthsAndPerformancePercentage": {
+                "serve": {
+                    "lost": 11.11111111111111,
+                    "won": 14.814814814814813
+                },
+                "returnPerfomance": {
+                    "lost": 12.962962962962962,
+                    "won": 27.77777777777778
+                },
+                "rally": {
+                    "lost": 12.962962962962962,
+                    "won": 12.962962962962962
+                },
+                "longRally": {
+                    "lost": 1.8518518518518516,
+                    "won": 5.555555555555555
+                }
+            }
+        }
+    },
+    "criticalPointsPerformanceTotal": {
+        "firstServeRate": {
+            "criticalPoints": 4.0,
+            "nonCriticalPoints": 10.0,
+            "criticalPercentage": 57.14285714285714,
+            "nonCriticalPercentage": 83.33333333333334,
+            "up": 0
+        },
+        "firstServeReturn": {
+            "criticalPoints": 16.0,
+            "nonCriticalPoints": 13.0,
+            "criticalPercentage": 75.0,
+            "nonCriticalPercentage": 100.0,
+            "up": 0
+        },
+        "secondServeNonLossRate": {
+            "criticalPoints": 3.0,
+            "nonCriticalPoints": 2.0,
+            "criticalPercentage": 66.66666666666666,
+            "nonCriticalPercentage": 0.0,
+            "up": 1
+        },
+        "secondServeReturn": {
+            "criticalPoints": 3.0,
+            "nonCriticalPoints": 3.0,
+            "criticalPercentage": 66.66666666666666,
+            "nonCriticalPercentage": 100.0,
+            "up": 0
+        }
+    }
+}
