@@ -22,6 +22,7 @@ from .Apply_Models import (
     combine_preds
 )
 from .Blend_Touch_wFeatures import create_touch_data, correct_OnServe
+from .Create_Player_SummaryStats import create_stats_basis, create_stats
 
 def run_transform_pipeline(zip_path):
     print("[1/4] Extracting zip contents...")
@@ -91,9 +92,25 @@ def run_transform_pipeline(zip_path):
 
     touch3 = create_touch_data(motion, points_start_end_4)
 
-    touch3 = correct_OnServe(touch3, eval_fin8)
-    
-    print(touch3.head())
+    touch3, eval_fin9 = correct_OnServe(touch3, eval_fin8)
+
+    shots5, pts = create_stats_basis(touch3, eval_fin9)
+
+    eval_table = create_stats(
+        shots5,
+        motion,
+        pts,
+        gender,
+        meta_id,
+        bornYear,
+        rating_lev,
+        rating_typ,
+        matchResult,
+        matchLevel,
+        matchSurface,
+        matchType,
+        missing_sensor,
+        )
     
     print("[4/4] Pipeline run complete.")
 

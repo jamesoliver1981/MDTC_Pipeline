@@ -279,4 +279,4 @@ def correct_OnServe(touch3, eval_fin8):
     touch3["keep_end"] = np.where(touch3.keep_end == touch3.keep_end.shift(1), touch3.Seconds - 1, touch3.keep_end)
     touch3["keep_end2"] = np.where(touch3.keep_end2 == touch3.keep_end2.shift(1), touch3.Seconds - 1, touch3.keep_end2)
 
-    return touch3
+    return touch3, eval_fin9
