@@ -24,7 +24,7 @@ def limit_eff(datei, mini, div):
             out = (datei + mini) / (div /100)
     return out
 
-def stat_func(df):
+def stat_func(df, suffix = "single"):
     lost = df[(df.Label_0 =="TotalPointsWonOrLost_Freq") & (df.Label == "Lost") & (df.variable == "Frequency")].iloc[:,3:].sum(axis = 1).sum()
     won = df[(df.Label_0 =="TotalPointsWonOrLost_Freq") & (df.Label == "Won") & (df.variable == "Frequency")].iloc[:,3:].sum(axis = 1).sum()
     ptsplayed = won + lost
@@ -655,48 +655,60 @@ def stat_func(df):
     Slice_Return_prop = Slice_Returns / Total_Returns
 
     TotalReturn_ErrorRate = (Total_Return_Mistakes/Total_Returns)
-    return (
-    df, serve_won, serve_lost, return_won, return_lost, won, lost, rally_324_won, rally_324_lost,
-    rally_5plus_won, rally_5plus_lost, totalserve_eff, return_eff_freq, rally_eff_freq, firstserverate,
-    firstserve_eff, secondserve_eff, df_rate, secondserves_freq, crit_totalserve_freq, crit_1stserve_freq,
-    noncrit_1stserve_freq, noncrit_totalserve_freq, breakball_allserves, breakball_1stserverate,
-    deuce_allserves_freq, adv_allserves_freq, firstserves_freq, deuce_firstserves_rate, adv_firstserves_rate,
-    firstserve_serveonly_freq, firstserve_serveFH_freq, firstserve_serveBH_freq, serveplusplayed,
-    FH_of_ServePlus1, firstserve_serveFH_eff, BH_of_ServePlus1, firstserve_serveBH_eff, Slice_of_ServePlus1,
-    firstserve_serveSlice_eff, secondserve_serveonly_freq, secondserve_serveFH_freq, secondserve_serveBH_freq,
-    FH_of_ServePlus1_2nd, secondserve_serveFH_eff, BH_of_ServePlus1_2nd, secondserve_serveBH_eff,
-    Slice_of_ServePlus1_2nd, secondserve_serveSlice_eff, firstreturn_rate, secondreturn_rate,
-    secondreturns_freq, firstreturns_freq, firstreturn_eff, secondreturn_eff, Total_Returns, FH_Return_prop,
-    BH_Return_prop, Slice_Return_prop, FirstReturn_FH_prop, FirstReturn_BH_prop, FirstReturn_Slice_prop,
-    FirstReturn_FH_Eff, FirstReturn_BH_Eff, FirstReturn_Slice_Eff, SecondReturn_FH_prop, SecondReturn_BH_prop,
-    SecondReturn_Slice_prop, SecondReturn_FH_Eff, SecondReturn_BH_Eff, SecondReturn_Slice_Eff, rally_points,
-    rally_eff, rally_win_balance, rally_win_balance2, rally_length, All_shots, FH_prop, BH_prop, Slice_prop,
-    Volley_prop, OH_prop, FH_eff, FH_shots, FH_WinBalance2, FH_WinBalance, BH_eff, BH_shots, BH_WinBalance2,
-    BH_RallyRate, BH_WinBalance, Slice_eff, Slice_shots, Slice_LossRate, Slice_WinBalance2, firstserve_lost,
-    firstserve_rally, firstserve_won, firstservesOnlyProp, dfs, secondServe_total_lostwinner,
-    secondServe_total_lostforced, secondServe_total_lostmistake, secondserve_lost, crit_nonbreakball_allserves,
-    crit_nonbreakball_1stserverate, firstreturn_lost, firstreturn_won, secondreturn_lost, secondreturn_won,
-    secondreturn_rally, crit_1streturnHIT_freq, noncrit_1streturnHIT_freq, rally_prop, FH_ratio, BH_Slice_ratio,
-    ptsplayed, Won_thru_Winner, Lost_thru_Mistake, firstServe_total_lostmistake, firstServe_total_rally,
-    firstServe_total_wonwinner, deuce_firstServe_total_lostmistake, deuce_firstServe_total_rally,
-    deuce_firstServe_total_wonwinner, deuce_firstserves_freq, adv_firstServe_total_lostmistake,
-    adv_firstServe_total_rally, adv_firstServe_total_wonwinner, adv_firstserves_freq, secondServe_total_rally,
-    secondServe_total_wonwinner, Deuce_secondServe_total_lostmistake, Deuce_secondServe_total_rally,
-    Deuce_secondServe_total_wonwinner, Deuce_secondserves_freq, Adv_secondServe_total_lostmistake,
-    Adv_secondServe_total_rally, Adv_secondServe_total_wonwinner, Adv_secondserves_freq, secondserve_rally,
-    secondserve_won, totalreturn_eff, firstReturn_total_lostmistake, firstReturn_total_rally,
-    firstReturn_total_wonwinner, deuce_firstReturn_total_lostmistake, deuce_firstReturn_total_rally,
-    deuce_firstReturn_total_wonwinner, deuce_firstreturns_freq, adv_firstReturn_total_lostmistake,
-    adv_firstReturn_total_rally, adv_firstReturn_total_wonwinner, adv_firstreturns_freq,
-    secondReturn_total_lostmistake, secondReturn_total_rally, secondReturn_total_wonwinner,
-    Deuce_secondReturn_total_lostmistake, Deuce_secondReturn_total_rally, Deuce_secondReturn_total_wonwinner,
-    Deuce_secondreturns_freq, Adv_secondReturn_total_lostmistake, Adv_secondReturn_total_rally,
-    Adv_secondReturn_total_wonwinner, Adv_secondreturns_freq, firstreturn_rally, rally_lostmistake,
-    rally_rally, rally_wonwinner, rally_freq, up_1st_serve, crit_1streturnMADE_freq, noncrit_1streturnMADE_freq,
-    up_1st_return, crit_secondserve_freq, noncrit_2ndserve_freq, crit_2ndservenonloss_freq,
-    noncrit_2ndservenonloss_freq, up_2nd_serve, crit_2ndreturnHIT_freq, noncrit_2ndreturnHIT_freq,
-    criticalPercentage2ndReturns, noncrit_2ndreturnMADE_freq, up_2nd_return, FirstReturn_FH_Freq,
-    FirstReturn_BH_Freq, FirstReturn_Slice_Freq, SecondReturn_FH_Freq, SecondReturn_BH_Freq,
-    SecondReturn_Slice_Freq
-)
+
+        # --- End of stat_func: build and return suffixed dictionary ---
+
+    stat_keys = [
+        "serve_won", "serve_lost", "return_won", "return_lost", "won", "lost",
+        "rally_324_won", "rally_324_lost", "rally_5plus_won", "rally_5plus_lost", "totalserve_eff",
+        "return_eff_freq", "rally_eff_freq", "firstserverate", "firstserve_eff", "secondserve_eff",
+        "df_rate", "secondserves_freq", "crit_totalserve_freq", "crit_1stserve_freq", "noncrit_1stserve_freq",
+        "noncrit_totalserve_freq", "breakball_allserves", "breakball_1stserverate", "deuce_allserves_freq",
+        "adv_allserves_freq", "firstserves_freq", "deuce_firstserves_rate", "adv_firstserves_rate",
+        "firstserve_serveonly_freq", "firstserve_serveFH_freq", "firstserve_serveBH_freq", "serveplusplayed",
+        "FH_of_ServePlus1", "firstserve_serveFH_eff", "BH_of_ServePlus1", "firstserve_serveBH_eff",
+        "Slice_of_ServePlus1", "firstserve_serveSlice_eff", "secondserve_serveonly_freq",
+        "secondserve_serveFH_freq", "secondserve_serveBH_freq", "FH_of_ServePlus1_2nd", "secondserve_serveFH_eff",
+        "BH_of_ServePlus1_2nd", "secondserve_serveBH_eff", "Slice_of_ServePlus1_2nd", "secondserve_serveSlice_eff",
+        "firstreturn_rate", "secondreturn_rate", "secondreturns_freq", "firstreturns_freq", "firstreturn_eff",
+        "secondreturn_eff", "Total_Returns", "FH_Return_prop", "BH_Return_prop", "Slice_Return_prop",
+        "FirstReturn_FH_prop", "FirstReturn_BH_prop", "FirstReturn_Slice_prop", "FirstReturn_FH_Eff",
+        "FirstReturn_BH_Eff", "FirstReturn_Slice_Eff", "SecondReturn_FH_prop", "SecondReturn_BH_prop",
+        "SecondReturn_Slice_prop", "SecondReturn_FH_Eff", "SecondReturn_BH_Eff", "SecondReturn_Slice_Eff",
+        "rally_points", "rally_eff", "rally_win_balance", "rally_win_balance2", "rally_length", "All_shots",
+        "FH_prop", "BH_prop", "Slice_prop", "Volley_prop", "OH_prop", "FH_eff", "FH_shots", "FH_WinBalance2",
+        "FH_WinBalance", "BH_eff", "BH_shots", "BH_WinBalance2", "BH_RallyRate", "BH_WinBalance", "Slice_eff",
+        "Slice_shots", "Slice_LossRate", "Slice_WinBalance2", "firstserve_lost", "firstserve_rally",
+        "firstserve_won", "firstservesOnlyProp", "dfs", "secondServe_total_lostwinner",
+        "secondServe_total_lostforced", "secondServe_total_lostmistake", "secondserve_lost",
+        "crit_nonbreakball_allserves", "crit_nonbreakball_1stserverate", "firstreturn_lost", "firstreturn_won",
+        "secondreturn_lost", "secondreturn_won", "secondreturn_rally", "crit_1streturnHIT_freq",
+        "noncrit_1streturnHIT_freq", "rally_prop", "FH_ratio", "BH_Slice_ratio", "ptsplayed",
+        "Won_thru_Winner", "Lost_thru_Mistake", "firstServe_total_lostmistake", "firstServe_total_rally",
+        "firstServe_total_wonwinner", "deuce_firstServe_total_lostmistake", "deuce_firstServe_total_rally",
+        "deuce_firstServe_total_wonwinner", "deuce_firstserves_freq", "adv_firstServe_total_lostmistake",
+        "adv_firstServe_total_rally", "adv_firstServe_total_wonwinner", "adv_firstserves_freq",
+        "secondServe_total_rally", "secondServe_total_wonwinner", "Deuce_secondServe_total_lostmistake",
+        "Deuce_secondServe_total_rally", "Deuce_secondServe_total_wonwinner", "Deuce_secondserves_freq",
+        "Adv_secondServe_total_lostmistake", "Adv_secondServe_total_rally", "Adv_secondServe_total_wonwinner",
+        "Adv_secondserves_freq", "secondserve_rally", "secondserve_won", "totalreturn_eff",
+        "firstReturn_total_lostmistake", "firstReturn_total_rally", "firstReturn_total_wonwinner",
+        "deuce_firstReturn_total_lostmistake", "deuce_firstReturn_total_rally",
+        "deuce_firstReturn_total_wonwinner", "deuce_firstreturns_freq", "adv_firstReturn_total_lostmistake",
+        "adv_firstReturn_total_rally", "adv_firstReturn_total_wonwinner", "adv_firstreturns_freq",
+        "secondReturn_total_lostmistake", "secondReturn_total_rally", "secondReturn_total_wonwinner",
+        "Deuce_secondReturn_total_lostmistake", "Deuce_secondReturn_total_rally",
+        "Deuce_secondReturn_total_wonwinner", "Deuce_secondreturns_freq", "Adv_secondReturn_total_lostmistake",
+        "Adv_secondReturn_total_rally", "Adv_secondReturn_total_wonwinner", "Adv_secondreturns_freq",
+        "firstreturn_rally", "rally_lostmistake", "rally_rally", "rally_wonwinner", "rally_freq", "up_1st_serve",
+        "crit_1streturnMADE_freq", "noncrit_1streturnMADE_freq", "up_1st_return", "crit_secondserve_freq",
+        "noncrit_2ndserve_freq", "crit_2ndservenonloss_freq", "noncrit_2ndservenonloss_freq", "up_2nd_serve",
+        "crit_2ndreturnHIT_freq", "noncrit_2ndreturnHIT_freq", "criticalPercentage2ndReturns",
+        "noncrit_2ndreturnMADE_freq", "up_2nd_return", "FirstReturn_FH_Freq", "FirstReturn_BH_Freq",
+        "FirstReturn_Slice_Freq", "SecondReturn_FH_Freq", "SecondReturn_BH_Freq", "SecondReturn_Slice_Freq"
+    ]
+
+    local_vars = locals()
+    stats = {f"{key}_{suffix}": local_vars[key] for key in stat_keys}
+    return df, stats
 
