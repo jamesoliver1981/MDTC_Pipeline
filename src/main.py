@@ -1,5 +1,5 @@
 import sys
-from transform.pipeline import run_transform_pipeline
+from ExtractAndTransform.pipeline import run_transform_pipeline
 from summarise.pipeline import run_summarise_pipeline
 from utils.io_helpers import clear_tmp_data
 
