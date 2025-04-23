@@ -24,7 +24,7 @@ def limit_eff(datei, mini, div):
             out = (datei + mini) / (div /100)
     return out
 
-def stat_func(df, suffix = "single"):
+def stat_func(df, suffix = "single", debug=False):
     lost = df[(df.Label_0 =="TotalPointsWonOrLost_Freq") & (df.Label == "Lost") & (df.variable == "Frequency")].iloc[:,3:].sum(axis = 1).sum()
     won = df[(df.Label_0 =="TotalPointsWonOrLost_Freq") & (df.Label == "Won") & (df.variable == "Frequency")].iloc[:,3:].sum(axis = 1).sum()
     ptsplayed = won + lost
@@ -710,5 +710,11 @@ def stat_func(df, suffix = "single"):
 
     local_vars = locals()
     stats = {f"{key}_{suffix}": local_vars[key] for key in stat_keys}
+
+    #added in debugging so can update list of var's in gen_out for debugging to check nothing missing
+    if debug:
+        from utils.debug_tools import generate_variable_declarations
+        generate_variable_declarations(stats, suffix)
     return df, stats
+
 
